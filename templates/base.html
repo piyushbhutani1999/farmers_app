@@ -88,10 +88,7 @@
 									College <span><i class="fa fa-angle-down"></i></span>
 								</a>
 								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="">NIT kurukshetra</a>
-									{% comment %} <a class="dropdown-item" href="{{url 'thappar'}}">Thappar</a> {% endcomment %}
-								</div>
+
 							</li>
 							<li class="nav-item active">
 								<a class="nav-link" href="{%url 'accounts:contactus'%}">Contact Us</a>
@@ -139,7 +136,7 @@
 		</div>
 	</div>
 </section>
-<section class="hero-area bg-1 text-center overly" style="background-image: url('{% static "images/hero.jpg"%}')"; >
+<section class="hero-area bg-1 text-center overly" style="background-image: url('{% static "images/farm.jpeg"%}')"; >
 	<!-- Container Start -->
 	<div class="container" >
 		<div class="row">
@@ -157,13 +154,13 @@
 								<a href="{%url 'product:vehicles'%}"><i class="fa fa-grav"></i>Vehicles</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{%url 'product:roomdecor'%}"><i class="fa fa-car"></i> Room Decor</a>
+								<a href="{%url 'product:roomdecor'%}"><i class="fa fa-car"></i>Fertilizers</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{%url 'product:stationary'%}"><i class="fa fa-cutlery"></i> Stationary</a>
+								<a href="{%url 'product:stationary'%}"><i class="fa fa-cutlery"></i> Seeds</a>
 							</li>
 							<li class="list-inline-item">
-								<a href="{%url 'product:jobs'%}"><i class="fa fa-coffee"></i> jobs</a>
+								<a href="{%url 'product:jobs'%}"><i class="fa fa-coffee"></i> Jobs</a>
 							</li>
 						</ul>
 					</div>
@@ -200,9 +197,9 @@
 								<h4>Electronics</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:electronics'%}">Laptops </span></a></li>
-								<li><a href="{%url 'product:electronics'%}">Mobiles  </span></a></li>
-								<li><a href="{%url 'product:electronics'%}">Appliances</span></a></li>
+								<li><a href="{%url 'product:electronics'%}">Thresher </span></a></li>
+								<li><a href="{%url 'product:electronics'%}">Reaper  </span></a></li>
+								<li><a href="{%url 'product:electronics'%}">Harrow</span></a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
@@ -211,12 +208,12 @@
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-book icon-bg-2"></i> 
-								<h4>Stationary</h4>
+								<h4>Seeds</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:stationary'%}">Books </a></li>
-								<li><a href="{%url 'product:stationary'%}">ED Material </a></li>
-								<li><a href="{%url 'product:stationary'%}">Labcoats</a></li>
+								<li><a href="{%url 'product:stationary'%}">Hybrid </a></li>
+								<li><a href="{%url 'product:stationary'%}">Exported </a></li>
+								<li><a href="{%url 'product:stationary'%}">Imported</a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
@@ -228,9 +225,9 @@
 								<h4>Vehicles</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:vehicles'%}">Cycles</a></li>
-								<li><a href="{%url 'product:vehicles'%}">Bikes </a></li>
-								<li><a href="{%url 'product:vehicles'%}">onRent </a></li>
+								<li><a href="{%url 'product:vehicles'%}">Trucks</a></li>
+								<li><a href="{%url 'product:vehicles'%}">Tractor </a></li>
+								<li><a href="{%url 'product:vehicles'%}">JCB </a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
@@ -239,12 +236,12 @@
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-home icon-bg-4"></i> 
-								<h4>Room Decors</h4>
+								<h4>Fertilizers</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:roomdecor'%}">Curtains</a></li>
-								<li><a href="{%url 'product:roomdecor'%}">Matresses</a></li>
-								<li><a href="{%url 'product:roomdecor'%}">Wall Stickers</a></li>
+								<li><a href="{%url 'product:roomdecor'%}">Advanced</a></li>
+								<li><a href="{%url 'product:roomdecor'%}">Pesticides</a></li>
+								<li><a href="{%url 'product:roomdecor'%}">Herbicides</a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
@@ -253,31 +250,16 @@
 						<div class="category-block">
 							<div class="header">
 								<i class="fa fa-briefcase icon-bg-5"></i> 
-								<h4>jobs</h4>
+								<h4>Jobs</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:jobs'%}">Photoshop </a></li>
-								<li><a href="{%url 'product:jobs'%}">Management </a></li>
+								<li><a href="{%url 'product:jobs'%}">Harvesting </a></li>
+								<li><a href="{%url 'product:jobs'%}">Farm Manager </a></li>
 								<li><a href="{%url 'product:jobs'%}">Voluntary Works </a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					{% comment %} <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
-						<div class="category-block">
-							<div class="header">
-								<i class="fa fa-car icon-bg-6"></i> 
-								<h4>Vehicles</h4>
-							</div>
-							<ul class="category-list" >
-								<li><a href="category.html">Bus <span>193</span></a></li>
-								<li><a href="category.html">Cars <span>23</span></a></li>
-								<li><a href="category.html">Motobike  <span>33</span></a></li>
-								<li><a href="category.html">Rent a car <span>73</span></a></li>
-							</ul>
-						</div>
-					</div> <!-- /Category List -->
-					<!-- Category list --> {% endcomment %}
 					<div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
 						<div class="category-block">
 							<div class="header">
@@ -285,28 +267,13 @@
 								<h4>Others</h4>
 							</div>
 							<ul class="category-list" >
-								<li><a href="{%url 'product:others'%}">Buckets</a></li>
-								<li><a href="{%url 'product:others'%}">Blankets</a></li>
+								<li><a href="{%url 'product:others'%}">Ploughing</a></li>
+								<li><a href="{%url 'product:others'%}">Volunteering</a></li>
 								<li><a href="{%url 'product:others'%}">General </a></li>
 							</ul>
 						</div>
 					</div> <!-- /Category List -->
 					<!-- Category list -->
-					{% comment %} <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
-						<div class="category-block">
-							
-							<div class="header">
-								<i class="fa fa-laptop icon-bg-8"></i> 
-								<h4>Services</h4>
-							</div>
-							<ul class="category-list" >
-								<li><a href="category.html">Cleaning <span>93</span></a></li>
-								<li><a href="category.html">Car Washing <span>233</span></a></li>
-								<li><a href="category.html">Clothing  <span>183</span></a></li>
-								<li><a href="category.html">Business <span>343</span></a></li>
-							</ul>
-						</div>
-					</div> <!-- /Category List --> {% endcomment %}
 					
 					
 				</div>
@@ -327,7 +294,7 @@
           <img src="images/logo-footer.png" alt="">
           <!-- description -->
           <p class="alt-color">Maroon is all about make your life easier. The journey of marron starts with an idea of 
-          providing goods to other students. Initially it is a college level website and includes only two colleges
+          providing goods to other farmers. Initially it is a startup website and includes some regions
           but later on it will going to include many colleges</p>
         </div>
       </div>
@@ -337,7 +304,6 @@
           <h4>Site Pages</h4>
           <ul>
             <li><a href="{%url 'accounts:aboutus'%}">Aboutus</a></li>
-            <li><a href="{%url 'accounts:aboutus'%}">How It works</a></li>
             <li><a href="{%url 'accounts:contactus'%}">Contact us</a></li>
             <li><a href="terms-condition.html">Terms & Conditions</a></li>
           </ul>

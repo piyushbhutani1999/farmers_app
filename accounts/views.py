@@ -128,22 +128,14 @@ def update_user_profile_phonenumber(request):
             phone = request.user.phone
             if old_phone != phone:
                 raise ValueError("old phonenumber is not correct")
-            print(old_phone)
             if confirm_phone != new_phone:
                 raise ValueError("confirm phone doesnot match")
-            
-            print(confirm_phone)
-            print("CHECK VALIDITY")
-            print(form.is_valid)
             user = request.user
             user.phone = confirm_phone
-            print("dekh error aya koi")
-            print(request.user.phone)
             try:
                 user.save()
             except:
                 raise ValueError("please enter a nonused number")
-            print(new_phone)
             return redirect('product:home')
         else:
             form = UserPhoneEditForm()
