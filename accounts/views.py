@@ -23,7 +23,6 @@ class ContactUsPageView(TemplateView):
 def login_user(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        print(form)
         if form.is_valid():
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
@@ -61,16 +60,13 @@ def login_user(request):
 def register_user(request):
     if request.method=='POST':
         form = UserRegisterForm(request.POST)
-        print(form)
-        print(form.is_valid())
         if form.is_valid():
             password_ = form.cleaned_data['password']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
-            college_name = form.cleaned_data['college_name']
-            user = User.objects.create_user(email=email, password=password_, first_name=first_name, last_name=last_name , phone=phone, college_name = college_name)
+            user = User.objects.create_user(email=email, password=password_, first_name=first_name, last_name=last_name , phone=phone)
             user.save()
             return redirect('product:home')
     else:
@@ -88,10 +84,8 @@ def update_user_profile(request):
         phone = request.user.phone
         first_name = request.user.first_name
         last_name = request.user.last_name
-        print(request.method)
         if request.method == 'POST':
             form = UserEditForm(request.POST)
-            print(form.is_valid())
             if form.is_valid():
                 user_info = request.user
                 user_info.first_name = form.cleaned_data['first_name']
@@ -99,7 +93,6 @@ def update_user_profile(request):
                 new_phone = form.cleaned_data['phone']
                 if new_phone!=phone:
                     phone_list = User.objects.all()
-                    print(phone_list)
                     for x in phone_list:
                         if new_phone == x.phone:
                             messages.error(request, 'Phone Number already exists.')
@@ -121,7 +114,6 @@ def update_user_profile_phonenumber(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = UserPhoneEditForm(request.POST)
-            print(form)
             old_phone= form.cleaned_data['old_phone']
             confirm_phone = form.cleaned_data['confirm_phone']
             new_phone =form.cleaned_data['new_phone']
@@ -158,25 +150,15 @@ def my_ads_view(request):
 def edit_product(request,slug):
     if request.user.is_authenticated:
         obj = Product.objects.filter(slug = slug , seller_id = request.user.pk)
-        print("THE OBJECT IS")
-        print(obj)
         if obj.count()==1:
             obj = obj.first()
-            print(obj)
             title = obj.title
             description = obj.description
             price = obj.price
             image = obj.image
-            print(title)
-            print(description)
-            print(image)
-            print("the object image is")
-            print(obj.image)
             category = obj.category
             if request.method =='POST':
                 form = AddProductInfoForm(request.POST ,request.FILES)
-                print("THE FORM IS")
-                print(form)
                 if form.is_valid():
                     new_price = form.cleaned_data['price']
                     new_title = form.cleaned_data['title']
@@ -188,9 +170,6 @@ def edit_product(request,slug):
                     obj.description = new_description
                     obj.image = new_image
                     obj.category = new_category
-                    print("the new image is")
-                    print(obj.image)
-                    print(obj)
                     try: 
                         obj.save()
                     except:
@@ -199,9 +178,6 @@ def edit_product(request,slug):
             
             else:
                 form = AddProductInfoForm(initial={'title':title, 'description':description , 'category':category,'price':price, 'image':image})
-                print("THE DEFAULT IMAGE IS:")
-                print(obj.image)
-                print(form)
             return render(request, 'update_ad.html', {'form': form})
         else:
             raise ValueError("The product is not associated to the authenticated user")
