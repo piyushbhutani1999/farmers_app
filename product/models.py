@@ -6,10 +6,10 @@ from django.db.models.signals import pre_save, post_save
 from accounts.models import User
 
 CATEGORY_CHOICES = (
-    ('electronic','Electronic'),
-    ('stationary', 'Stationary'),
-    ('roomdecor','Room Decor'),
-    ('vehicle','Vehicle'),
+    ('tools_and_instruments','Tools and Instruments'),
+    ('seeds', 'Seeds'),
+    ('fertilizers','Fertilizers'),
+    ('farm_machinery','Farm Machinery'),
     ('job','Job'),
     ('other','Other'),
 )
