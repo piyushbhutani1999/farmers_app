@@ -8,7 +8,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 # accounts.models.py
 
 class UserManager(BaseUserManager):
-    def create_user(self, email,first_name,last_name, phone, password=None):
+    def create_user(self, email,first_name,last_name, password=None):
         """
         Creates and saves a User with the given email and password.
         """
@@ -16,14 +16,12 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         if not first_name:
             raise ValueError("Name Cannot Be left Blank")
-        if not phone:
-            raise ValueError("Phone Number Cannot Be left Blank")
+
 
         user = self.model(
             email=self.normalize_email(email),
             first_name = first_name,
             last_name = last_name,
-            phone = phone,
         )
 
         user.set_password(password)
@@ -73,7 +71,7 @@ class User(AbstractBaseUser):
     # notice the absence of a "Password field", that's built in.
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name','last_name','phone'] # Email & Password are required by default.
+    REQUIRED_FIELDS = ['first_name','last_name',] # Email & Password are required by default.
 
     objects = UserManager()
 
