@@ -69,27 +69,12 @@ def product_detail_view(request, slug, *args, **kwargs):
 
 def postad(request , *args , **kwargs):
     if request.user.is_authenticated:
-        print(request.method)
         if(request.method=='POST'):
             form = AddProductInfoForm(request.POST, request.FILES)
-            print("THe form is")
-            print(form)
-            print(form.is_valid())
             if form.is_valid():
                 product_info=form.save(commit=False)
-                print(product_info)
                 product_info.seller_id=request.user
-                print("COLLEGE")
-                print(request.user.college_name)
-                product_info.college = request.user.college_name
-                print("PRODUCTINFO COLLEGE ")
-                print(product_info.college)
                 product_info.save()
-                print(product_info)
-                print("PRODUCTINFO COLLEGE ")
-                print(product_info.college)
-                print(request.user)
-                print(request.method)
                 return redirect('product:home')
         else:
             form=AddProductInfoForm()
