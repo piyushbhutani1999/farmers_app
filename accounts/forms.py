@@ -81,7 +81,7 @@ class LoginForm(forms.Form):
 class UserRegisterForm(forms.ModelForm):
     class Meta:
         model=User
-        fields = [  'first_name','last_name', 'email','phone','college_name','password']
+        fields = [  'first_name','last_name', 'email','phone','password']
     first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Firstname','class': 'border p-3 w-100 my-2'}))
     last_name  = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Lastname','class': 'border p-3 w-100 my-2'}))
     email = forms.CharField(widget=forms.EmailInput(attrs={'placeholder':'Email','class': 'border p-3 w-100 my-2'}))
