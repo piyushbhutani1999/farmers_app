@@ -8,7 +8,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 # accounts.models.py
 
 class UserManager(BaseUserManager):
-    def create_user(self, email,first_name,last_name, password=None):
+    def create_user(self, email,first_name,last_name, phone, password=None):
         """
         Creates and saves a User with the given email and password.
         """
@@ -16,19 +16,21 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
         if not first_name:
             raise ValueError("Name Cannot Be left Blank")
-
+        if not phone:
+            raise ValueError("Phone Number Cannot Be left Blank")
 
         user = self.model(
             email=self.normalize_email(email),
             first_name = first_name,
             last_name = last_name,
+            phone = phone,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_staffuser(self, email,first_name,last_name, password):
+    def create_staffuser(self, email,first_name,last_name, phone, password):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -36,18 +38,20 @@ class UserManager(BaseUserManager):
             email,
             first_name,
             last_name,
+            phone,
             password=password,
         )
         user.staff = True
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email,first_name,last_name, password):
+    def create_superuser(self, email,first_name,last_name, phone, password):
 
         user = self.create_user(
             email,
             first_name,
             last_name,
+            phone,
             password=password,
         )
         user.staff = True
@@ -71,7 +75,7 @@ class User(AbstractBaseUser):
     # notice the absence of a "Password field", that's built in.
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name','last_name',] # Email & Password are required by default.
+    REQUIRED_FIELDS = ['first_name','last_name','phone'] # Email & Password are required by default.
 
     objects = UserManager()
 
