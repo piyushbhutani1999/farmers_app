@@ -668,7 +668,7 @@ ul.pagination .active a {
 }
 
 .bg-1 {
-    background: url('/static/imgage/hero.jpg');
+    background: url('/static/images/hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
